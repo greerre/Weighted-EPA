@@ -17,6 +17,14 @@ pbp_filepath = 'replace with your filepath for the pbp csv'
 game_filepath = 'replace with your filepath for the game csv'
 output_folder = 'replace with where you want the files to go' ## don't include final back slash ##
 
+pbpDF2 = pd.read_csv(pbp_filepath,low_memory=False)
+## this is a consolidated file of all nflScrapR pbp season csvs ##
+## the consolidation was done with pandas concat function ##
+
+gameDataDF = pd.read_csv(game_filepath)
+## this is a consolidated file of all nflscrapR game csvs
+## the consolidation was done with pandas concat function ##
+
 
 ## original r squared maximizing weights ##
 ## note that these were based on pbp scores not game file score ##
@@ -152,6 +160,7 @@ market_team_standard_dict = {
     'WAS' : 'WAS',
 
 }
+
 
 ## standardize team names across data sets ##
 pbpDF2['posteam'] = pbpDF2['posteam'].replace(pbp_team_standard_dict)
